@@ -15,8 +15,12 @@ COPY . /source
 WORKDIR /source/bin
 RUN mv libhcnetsdk.so HCNetSDK.dll
 
-# go to source then remove Dockerfile and README.md
+# create video for store video
 WORKDIR /source
+RUN mkdir video
+
+# in source remove Dockerfile and README.md
+# WORKDIR /source
 RUN rm Dockerfile
 RUN rm README.md
 
