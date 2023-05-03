@@ -9,7 +9,7 @@ namespace DQiTs1
         {
             CHCNetSDK.NET_DVR_Init();
             var deviceInfo = new CHCNetSDK.NET_DVR_DEVICEINFO_V30();
-            var userID = CHCNetSDK.NET_DVR_Login_V30("192.168.1.101", (short)8000, "admin", "DIATIoT01", ref deviceInfo);
+            var userID = CHCNetSDK.NET_DVR_Login_V30("192.168.1.108", (short)8000, "admin", "DIATIoT01", ref deviceInfo);
             if (userID < 0)
             {
                 Console.WriteLine("Login error");
@@ -21,7 +21,7 @@ namespace DQiTs1
                 var previewInfo = new CHCNetSDK.NET_DVR_PREVIEWINFO { lChannel = 1 };
                 var userPtr = IntPtr.Zero;
                 var realHandle = CHCNetSDK.NET_DVR_RealPlay_V40(userID, ref previewInfo, null, userPtr);
-                CHCNetSDK.NET_DVR_SaveRealData(realHandle, "C:/Users/mawin/Desktop/video/Record_test0.mp4");
+                CHCNetSDK.NET_DVR_SaveRealData(realHandle, "/source/video/Record_test0.mp4");
                 Thread.Sleep(1000);
                 CHCNetSDK.NET_DVR_StopSaveRealData(realHandle);
                 CHCNetSDK.NET_DVR_StopRealPlay(realHandle);
